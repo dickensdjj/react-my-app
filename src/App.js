@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import {Todo} from "./components/Todo";
 
-function App() {
+import {AllMeetupsPage} from "./pages/AllMeetups";
+import {NewMeetupsPage} from "./pages/NewMeetup";
+import {FavoritesPage} from "./pages/Favorites";
+import {Route, Routes} from "react-router-dom";
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      // TODO: why element but not component?
+      // TODO: How to read the Route index.d.ts? Any clue or hint or skill on reading through the code?
+      <Route exact path='/' element={<AllMeetupsPage/>} />
+      <Route exact path='/Favorites' element={<FavoritesPage/>} />
+      <Route exact path='/new' element={<NewMeetupsPage/>} />
+    </Routes>
   );
-}
-
-export default App;
+};
